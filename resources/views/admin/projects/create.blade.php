@@ -16,6 +16,17 @@
                         <label for="status" class="form-label">Stato</label>
                         <input type="text" class="form-control" id="status" name="status">
                     </div>
+
+                    @foreach ($tecnologies as $tecnology)
+                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                            <input type="checkbox" class="btn-check" id="tecnology_{{ $tecnology->id }}" autocomplete="off"
+                                name="tecnologies[]" value="tecnology_{{ $tecnology->id }}">
+                            <label class="btn btn-outline-primary"
+                                for="tecnology_{{ $tecnology->id }}">{{ $tecnology->name }}</label>
+                        </div>
+                    @endforeach
+
+
                     <div class="form-floating">
                         <textarea class="form-control mb-3 " placeholder="Descrizione" name="description" id="description"
                             style="height: 200px"></textarea>

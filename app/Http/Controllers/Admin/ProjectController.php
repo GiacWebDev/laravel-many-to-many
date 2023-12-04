@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Models\Tecnology;
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -26,7 +28,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-       return view('admin.projects.create');
+        $types = Type::all();
+        $tecnologies = Tecnology::all();
+       return view('admin.projects.create', compact('types', 'tecnologies'));
+
     }
 
     /**
@@ -42,6 +47,10 @@ class ProjectController extends Controller
         $new_project->fill($form_data);
 
         $new_project->save();
+
+        if(array_key_exists('tecnologies', $form_data)) {
+            $new_project->tecnologies()->attach($form_data['tecnologies']);
+        }
 
         return redirect()->route('admin.projects.show',$new_project);
     }
