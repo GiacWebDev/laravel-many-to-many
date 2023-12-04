@@ -16,6 +16,6 @@
 
 
 
-    <p><strong>Tipo: </strong>{{ $project->type->name }}</p>
+    <p><strong>Tipo: </strong>{{ $project->type?->name }}</p>
     <p><strong>Descrizione: </strong>{{ $project->description }}</p>
 @endsection
