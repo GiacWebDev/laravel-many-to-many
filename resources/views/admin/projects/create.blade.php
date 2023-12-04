@@ -20,7 +20,7 @@
                     @foreach ($tecnologies as $tecnology)
                         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                             <input type="checkbox" class="btn-check" id="tecnology_{{ $tecnology->id }}" autocomplete="off"
-                                name="tecnologies[]" value="tecnology_{{ $tecnology->id }}">
+                                name="tecnologies[]" value="{{ $tecnology->id }}">
                             <label class="btn btn-outline-primary"
                                 for="tecnology_{{ $tecnology->id }}">{{ $tecnology->name }}</label>
                         </div>
