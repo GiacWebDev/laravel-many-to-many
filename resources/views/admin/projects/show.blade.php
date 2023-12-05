@@ -17,5 +17,9 @@
 
 
     <p><strong>Tipo: </strong>{{ $project->type?->name }}</p>
+    <div>
+        <img src="{{ asset('storage/uploads/' . $project->image) }}" alt="{{ $project->name }}">
+        <p>{{ $project->image_original_name }}</p>
+    </div>
     <p><strong>Descrizione: </strong>{{ $project->description }}</p>
 @endsection

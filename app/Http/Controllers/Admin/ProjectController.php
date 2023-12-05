@@ -50,8 +50,9 @@ class ProjectController extends Controller
 
         $new_project->save();
 
-        if(array_key_exists('image', $form_data)) {
-            $image_path = Storage::put('uploads', $form_data['image']);
+        if (array_key_exists('image', $form_data)) {
+            $form_data['image_original_name'] = $request->file('image')->getClientOriginalName();
+            $form_data['image'] = Storage::put('uploads', $form_data['image']);
         }
 
         if(array_key_exists('tecnologies', $form_data)) {
