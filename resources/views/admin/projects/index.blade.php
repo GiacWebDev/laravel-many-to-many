@@ -23,12 +23,13 @@
                     <td>{{ $project->id }}</td>
                     <td>{{ $project->name }}</td>
                     <td>
-                        @forelse ($project->tecnologies as $tecnology)
-                            {{ $tecnology->name }}
 
+                        @forelse ($project->tecnologies as $tecnology)
+                            <span class="badge text-bg-info">{{ $tecnology->name }}</span>
                         @empty
                             -
                         @endforelse
+
                     </td>
                     <td>{{ $project->type?->name }}</td>
 

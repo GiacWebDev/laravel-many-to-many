@@ -4,11 +4,11 @@
     <h1><strong>Titolo Progetto: </strong>{{ $project->name }}</h1>
     <p><strong>Status: </strong>{{ $project->status }}</p>
 
-    <div class="d-flex">
+    <div class="badge-tec d-flex">
         <p><strong>Tecnologia: </strong></p>
 
         @forelse ($project->tecnologies as $tecnology)
-            {{ $tecnology->name }}
+            <span class="badge text-bg-info">{{ $tecnology->name }}</span>
         @empty
             -
         @endforelse
