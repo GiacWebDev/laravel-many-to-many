@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
-use Illuminate\Http\Request;
 use App\Models\Tecnology;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -46,7 +47,12 @@ class ProjectController extends Controller
         $form_data = $request->all();
         $new_project->fill($form_data);
 
+
         $new_project->save();
+
+        if(array_key_exists('image', $form_data)) {
+            $image_path = Storage::put('uploads', $form_data['image']);
+        }
 
         if(array_key_exists('tecnologies', $form_data)) {
             $new_project->tecnologies()->attach($form_data['tecnologies']);

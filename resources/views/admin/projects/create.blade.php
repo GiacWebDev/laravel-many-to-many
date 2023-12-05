@@ -6,7 +6,7 @@
 
         <div class="row">
             <div class="col-6">
-                <form action="{{ route('admin.projects.store') }}" method="POST">
+                <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome Progetto</label>
@@ -26,6 +26,10 @@
                         </div>
                     @endforeach
 
+                    <div class="my-4">
+                        <label for="image" class="form-label">Immagine</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
 
                     <div class="form-floating">
                         <textarea class="form-control mb-3 " placeholder="Descrizione" name="description" id="description"
